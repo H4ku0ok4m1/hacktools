@@ -4,6 +4,7 @@ Quick "download the tools list". Tools are mainly for pentesting, more tools wil
 The tools list to be downloaded is located in the file githubtools.lst, just copy/paste new github urls to it.
 
 A second optional file is called gitskip.lst, this file takes the name of the repo you dont want to be downloaded or updated and skips it.(Instead of erasing the name from the githubtools.lst file and forgetting the tool ever existed)
+You can add this file manually (be carefull with the spelling).
 
 IE:
 If url is: https://github.com/H4ku0ok4m1/hacktools.git
