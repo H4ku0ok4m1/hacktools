@@ -37,7 +37,7 @@ function githubdownload {
 	else
 		echo
 		echo "Can't find the tools list! Can't download!"
-		echo "Make sure the file githubtools.lst is in the same working direftory as this script!"
+		echo "Make sure the file githubtools.lst is in the same working directory as this script!"
 	fi
 }
 
