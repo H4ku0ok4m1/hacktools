@@ -22,6 +22,7 @@ function githubdownload {
 				REPO_NAME=`sed 's|https://git.*.com/.*/||' <<< $GITREPO`
 				SANITIZED=`sed 's|\.git||' <<< $REPO_NAME`
                                 if grep -Fxq "$SANITIZED" $SCRIPTPATH/gitskip.lst; then
+										echo
                                         echo "$SANITIZED is in the list, won't do anything"
                                 else
                                         download_upgrade
