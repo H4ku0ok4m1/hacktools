@@ -61,16 +61,25 @@ function update_Os {
         sudo apt update && sudo apt upgrade -y
 }
 
+
 main () {
         SCRIPTPATH=`pwd`
         banner
-        echo "I will first update the system, please wait."
-        update_Os
-        echo
-        echo "I will attempt to download/update the tools from github, this might take a while..."
-        git_Download
-        echo
-        echo "Happy hunting!"
+        echo "Checking internet connection."
+        ping -c1 google.com > /dev/null 2>&1
+      	if [ "$?" != 0 ]; then
+      		      echo "No internet! Check your connection!"
+      	else
+      		      echo "You have connection, continue..."
+                echo
+                echo "I will first update the system, please wait."
+                update_Os
+                echo
+                echo "I will attempt to download/update the tools from github, this might take a while..."
+                git_Download
+                echo
+                echo "Happy hunting!"
+      	fi
 }
 
 main
