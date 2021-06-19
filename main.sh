@@ -4,15 +4,15 @@ banner () {
         echo "==============================================================="
         echo
         echo "      Common hacking tools download, install and update"
-        echo 
-        echo 
-        echo 
+        echo
+        echo
+        echo
         echo "    Special thanks to everyone who actually made the tools"
-        echo 
+        echo
         echo "==============================================================="
 }
 
-function githubdownload {
+function git_Download {
         echo
 	if [ -f githubtools.lst ]; then
 		if [ -f gitskip.lst ]; then
@@ -34,7 +34,7 @@ function githubdownload {
 			do
 				REPO_NAME=`sed 's|https://github.com/.*/||' <<< $GITREPO`
 				SANITIZED=`sed 's|\.git||' <<< $REPO_NAME`
-				download_upgrade
+				download_Upgrade
 			done
 		fi
 	else
@@ -44,7 +44,7 @@ function githubdownload {
 	fi
 }
 
-function download_upgrade {
+function download_Upgrade {
         if [ -d "/opt/$SANITIZED" ]; then
                 echo
                 echo "Updating $SANITIZED ..."
@@ -57,12 +57,18 @@ function download_upgrade {
         fi
 }
 
+function update_Os {
+        sudo apt update && sudo apt upgrade -y
+}
+
 main () {
         SCRIPTPATH=`pwd`
         banner
+        echo "I will first update the system, please wait."
+        update_Os
         echo
         echo "I will attempt to download/update the tools from github, this might take a while..."
-        githubdownload
+        git_Download
         echo
         echo "Happy hunting!"
 }
