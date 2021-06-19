@@ -25,7 +25,7 @@ function git_Download {
 										echo
                                         echo "$SANITIZED is in the list, won't do anything"
                                 else
-                                        download_upgrade
+                                        download_Upgrade
                                 fi
 			done
 		else
